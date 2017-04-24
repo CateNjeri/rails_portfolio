@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<div class="container">
+    <h3>comments</h3>
+    <div class="row" id="comments">
+      <% @comments.each do |comment|%>
+        <div class="comment">
+          <%= simple_format comment.content%>
+        </div>
+      <%end%>
+    </div>
+    <%= link_to "New Comment",new_post_comment_path(@commentable), class:"btn"%>
+</div>
+<%= link_to 'HOME', root_path %>

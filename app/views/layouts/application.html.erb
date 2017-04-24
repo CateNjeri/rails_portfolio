@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p style="position: absolute; top: 0; left:0; color:#fff; z-index: 3;"><%= flash[:notice] %></p>
+    <%= yield %>
+    <footer>
+      <p>&copy; 2017</p>
+      <% if !session[:access_token] %>
+        <p>Are you me? Sign in <%= link_to 'here', user_index_path %></p>
+      <% else %>
+        <%= link_to "Edit Repos", new_repo_path %>
+        <%= link_to 'Log Out', "user#index" %>
+      <% end %>
+    </footer>
+  </body>
+</html>
